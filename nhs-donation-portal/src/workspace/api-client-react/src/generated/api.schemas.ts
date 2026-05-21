@@ -4,6 +4,7 @@ export type ListPetsGender = "Male" | "Female";
 
 export interface Pet {
   id: number;
+  species: ListPetsSpecies;
   name: string;
   image: string;
   breed: string;

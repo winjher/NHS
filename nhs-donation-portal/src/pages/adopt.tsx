@@ -58,6 +58,7 @@ function PetDetailsDialog({ petId, open, onOpenChange }: { petId: number | null,
                 </div>
                 <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto">
                   <DialogTitle className="text-3xl font-bold mb-1">{pet.name}</DialogTitle>
+                  <div className="text-sm text-muted-foreground mb-2">ID: #{pet.id}</div>
                   <DialogDescription className="text-muted-foreground font-medium mb-5">
                     {pet.breed} &bull; {pet.age} &bull; {pet.gender}
                   </DialogDescription>
@@ -240,6 +241,7 @@ export default function Adopt() {
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <h3 className="font-serif font-bold text-2xl mb-1">{pet.name}</h3>
+                        <div className="text-xs text-muted-foreground font-medium mb-1">ID: #{pet.id}</div>
                         <p className="text-muted-foreground text-sm font-medium">{pet.age} • {pet.gender} • {pet.size}</p>
                       </div>
                       <Button size="icon" variant="ghost" className="rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10">
