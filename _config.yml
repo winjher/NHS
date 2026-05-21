@@ -1,0 +1,11 @@
+exclude:
+  - node_modules
+  - .git
+  - .gitignore
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .jekyll-cache
+
+include:
+  - .nojekyll
