@@ -1,0 +1,4 @@
+{
+  "buildCommand": "cd nhs-donation-portal && npm run vercel-build",
+  "outputDirectory": "nhs-donation-portal/dist"
+}
