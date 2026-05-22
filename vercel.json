@@ -1,4 +1,11 @@
 {
+  "version": 2,
+  "buildCommand": "pnpm --filter @workspace/nhs-donation-portal build",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "framework": "vite",
+  "outputDirectory": "artifacts/nhs-donation-portal/dist"
+}
+{
   "buildCommand": "pnpm run vercel-build",
   "outputDirectory": "nhs-donation-portal/dist"
 }
