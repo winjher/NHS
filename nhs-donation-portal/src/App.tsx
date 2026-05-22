@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -6,12 +7,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-import Home from "@/pages/home";
-import Adopt from "@/pages/adopt";
-import Donate from "@/pages/donate";
-import Success from "@/pages/success";
-import Staff from "@/pages/staff";
-import NotFound from "@/pages/not-found";
+const Home = lazy(() => import("@/pages/home"));
+const Adopt = lazy(() => import("@/pages/adopt"));
+const Donate = lazy(() => import("@/pages/donate"));
+const Success = lazy(() => import("@/pages/success"));
+const Staff = lazy(() => import("@/pages/staff"));
+const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
 
@@ -20,14 +21,16 @@ function Router() {
     <div className="flex flex-col min-h-[100dvh]">
       <Navbar />
       <main className="flex-1">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/adopt" component={Adopt} />
-          <Route path="/donate" component={Donate} />
-          <Route path="/success" component={Success} />
-          <Route path="/staff" component={Staff} />
-          <Route component={NotFound} />
-        </Switch>
+        <Suspense fallback={<div className="p-8 text-center">Loading…</div>}>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/adopt" component={Adopt} />
+            <Route path="/donate" component={Donate} />
+            <Route path="/success" component={Success} />
+            <Route path="/staff" component={Staff} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
       </main>
       <Footer />
     </div>
