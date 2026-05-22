@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "vercel-build": "cd nhs-donation-portal && pnpm install && pnpm run vercel-build"
+    "vercel-build": "cd nhs-donation-portal && pnpm install && pnpm run vercel-build",
+    "typecheck": "pnpm exec tsc -p tsconfig.json --noEmit",
+    "build": "vite build"
   }
 }
